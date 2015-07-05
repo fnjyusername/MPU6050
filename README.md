@@ -1,4 +1,4 @@
-# Step by Step MPU6050
+# Step by Step MPU6050 (Work in progress)
 
 Identify and define I2C Address declaring as gloval variable with  #define
 There are teo possible address depending on how the wires are lay-out on the PCB,  
