@@ -213,7 +213,6 @@ See also:getFSyncInterruptEnabled() MPU6050_RA_INT_PIN_CFG MPU6050_INTCFG_FSYNC_
 
 `
 Set FSYNC interrupt logic level mode. 
-
 Parameters:
 mode New FSYNC interrupt mode (0=active-high, 1=active-low)  
 See also:getFSyncInterruptMode() MPU6050_RA_INT_PIN_CFG MPU6050_INTCFG_FSYNC_INT_LEVEL_BIT  
@@ -221,21 +220,22 @@ See also:getFSyncInterruptMode() MPU6050_RA_INT_PIN_CFG MPU6050_INTCFG_FSYNC_INT
 
 ##### void MPU6050::setFullScaleAccelRange  ( uint8_t  range )  
 
-
+`
 Set full-scale accelerometer range. 
 Parameters:
 range New full-scale accelerometer range setting  
 See also:getFullScaleAccelRange()  
+`
 
+##### void MPU6050::setFullScaleGyroRange  ( uint8_t  range )  
 
-void MPU6050::setFullScaleGyroRange  ( uint8_t  range )  
-
-
+`
 Set full-scale gyroscope range. 
 Parameters:
+
 range New full-scale gyroscope range value  
 See also:getFullScaleRange() MPU6050_GYRO_FS_250 MPU6050_RA_GYRO_CONFIG MPU6050_GCONFIG_FS_SEL_BIT MPU6050_GCONFIG_FS_SEL_LENGTH  
-
+`
 
 void MPU6050::setI2CBypassEnabled  ( bool  enabled )  
 
