@@ -1,4 +1,4 @@
-### MPU CLASS REFERENCE - 
+### MPU CLASS REFERENCE - GET DATA
 http://www.i2cdevlib.com/docs/html/class_m_p_u6050.html#a7c0146d45537e4bd7a0d4c1c476fdab7
 
 
