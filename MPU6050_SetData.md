@@ -172,23 +172,19 @@ See also:getFreefallDetectionDuration() MPU6050_RA_FF_DUR
 ##### void MPU6050::setFreefallDetectionThreshold  ( uint8_t  threshold )  
 `
 Get free-fall event acceleration threshold. 
-
 Parameters:
-threshold New free-fall acceleration threshold value (LSB = 2mg)  
+"threshold" New free-fall acceleration threshold value (LSB = 2mg)  
 See also:getFreefallDetectionThreshold() MPU6050_RA_FF_THR  
 `
 
 ##### void MPU6050::setFSyncInterruptEnabled  ( bool  enabled )  
-
 `
 Set FSYNC pin interrupt enabled setting. 
-Parameters:
-enabled New FSYNC pin interrupt enabled setting  
+Parameters: "enabled" New FSYNC pin interrupt enabled setting  
 See also:getFSyncInterruptEnabled() MPU6050_RA_INT_PIN_CFG MPU6050_INTCFG_FSYNC_INT_EN_BIT  
 `
 
 ##### void MPU6050::setFSyncInterruptLevel  ( bool  level )  
-
 `
 Set FSYNC interrupt logic level mode. 
 Parameters:
@@ -197,41 +193,35 @@ See also:getFSyncInterruptMode() MPU6050_RA_INT_PIN_CFG MPU6050_INTCFG_FSYNC_INT
 `
 
 ##### void MPU6050::setFullScaleAccelRange  ( uint8_t  range )  
-
 `
 Set full-scale accelerometer range. 
-Parameters:
-range New full-scale accelerometer range setting  
+Parameters: "range" New full-scale accelerometer range setting  
 See also:getFullScaleAccelRange()  
 `
 
 ##### void MPU6050::setFullScaleGyroRange  ( uint8_t  range )  
-
 `
 Set full-scale gyroscope range. 
 Parameters:
-
-range New full-scale gyroscope range value  
+"range" New full-scale gyroscope range value  
 See also:getFullScaleRange() MPU6050_GYRO_FS_250 MPU6050_RA_GYRO_CONFIG MPU6050_GCONFIG_FS_SEL_BIT MPU6050_GCONFIG_FS_SEL_LENGTH  
 `
 
-void MPU6050::setI2CBypassEnabled  ( bool  enabled )  
-
-
+##### void MPU6050::setI2CBypassEnabled  ( bool  enabled )  
+`
 Set I2C bypass enabled status. When this bit is equal to 1 and I2C_MST_EN (Register 106 bit[5]) is equal to 0, the host application processor will be able to directly access the auxiliary I2C bus of the MPU-60X0. When this bit is equal to 0, the host application processor will not be able to directly access the auxiliary I2C bus of the MPU-60X0 regardless of the state of I2C_MST_EN (Register 106 bit[5]). 
 Parameters:
-enabled New I2C bypass enabled status  
+"enabled" New I2C bypass enabled status  
 See also:MPU6050_RA_INT_PIN_CFG MPU6050_INTCFG_I2C_BYPASS_EN_BIT  
+`
 
-
-void MPU6050::setI2CMasterModeEnabled  ( bool  enabled )  
-
-
+##### void MPU6050::setI2CMasterModeEnabled  ( bool  enabled )  
+`
 Set I2C Master Mode enabled status. 
 Parameters:
-enabled New I2C Master Mode enabled status  
+"enabled" New I2C Master Mode enabled status  
 See also:getI2CMasterModeEnabled() MPU6050_RA_USER_CTRL MPU6050_USERCTRL_I2C_MST_EN_BIT  
-
+`
 
 void MPU6050::setIntDataReadyEnabled  ( bool  enabled )  
 
