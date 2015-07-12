@@ -448,3 +448,60 @@ uint8_t MPU6050::getSlate4InputByte  (  )
 ```
 Get last available byte read from Slave 4. This register stores the data read from Slave 4. This field is populated after a read transaction. 
 Returns:Last available byte read from to Slave 4 See also:MPU6050_RA_I2C_SLV4_DI 
+
+
+```
+bool MPU6050::getXNegMotionDetected  (  )  
+```
+Get X-axis negative motion detection interrupt status. 
+Returns:Motion detection status See also:MPU6050_RA_MOT_DETECT_STATUS MPU6050_MOTION_MOT_XNEG_BIT  
+
+```
+bool MPU6050::getXPosMotionDetected  (  )  
+```
+Get X-axis positive motion detection interrupt status. 
+Returns:Motion detection status See also:MPU6050_RA_MOT_DETECT_STATUS MPU6050_MOTION_MOT_XPOS_BIT  
+
+```
+bool MPU6050::getYGyroFIFOEnabled  (  )  
+```
+Get gyroscope Y-axis FIFO enabled value. When set to 1, this bit enables GYRO_YOUT_H and GYRO_YOUT_L (Registers 69 and 70) to be written into the FIFO buffer. 
+Returns:Current gyroscope Y-axis FIFO enabled value See also:MPU6050_RA_FIFO_EN  
+
+```
+bool MPU6050::getYNegMotionDetected  (  )  
+```
+Get Y-axis negative motion detection interrupt status. 
+Returns:Motion detection status See also:MPU6050_RA_MOT_DETECT_STATUS MPU6050_MOTION_MOT_YNEG_BIT  
+
+```
+bool MPU6050::getYPosMotionDetected  (  )  
+```
+Get Y-axis positive motion detection interrupt status. 
+Returns:Motion detection status See also:MPU6050_RA_MOT_DETECT_STATUS MPU6050_MOTION_MOT_YPOS_BIT  
+
+```
+bool MPU6050::getZeroMotionDetected  (  )  
+```
+Get zero motion detection interrupt status. 
+Returns:Motion detection status See also:MPU6050_RA_MOT_DETECT_STATUS MPU6050_MOTION_MOT_ZRMOT_BIT  
+
+```
+uint8_t MPU6050::getZeroMotionDetectionDuration  (  )  
+```
+Get zero motion detection event duration threshold. This register configures the duration counter threshold for Zero Motion interrupt generation. The duration counter ticks at 16 Hz, therefore ZRMOT_DUR has a unit of 1 LSB = 64 ms. The Zero Motion duration counter increments while the absolute value of the accelerometer measurements are each less than the detection threshold (Register 33). The Zero Motion interrupt is triggered when the Zero Motion duration counter reaches the time count specified in this register.
+
+For more details on the Zero Motion detection interrupt, see Section 8.4 of the MPU-6000/MPU-6050 Product Specification document, as well as Registers 56 and 58 of this document.
+Returns:Current zero motion detection duration threshold value (LSB = 64ms) See also:MPU6050_RA_ZRMOT_DUR  
+
+```
+uint8_t MPU6050::getZeroMotionDetectionThreshold  (  )  
+```
+Get zero motion detection event acceleration threshold. This register configures the detection threshold for Zero Motion interrupt generation. The unit of ZRMOT_THR is 1LSB = 2mg. Zero Motion is detected when the absolute value of the accelerometer measurements for the 3 axes are each less than the detection threshold. This condition increments the Zero Motion duration counter (Register 34). The Zero Motion interrupt is triggered when the Zero Motion duration counter reaches the time count specified in ZRMOT_DUR (Register 34).
+
+Unlike Free Fall or Motion detection, Zero Motion detection triggers an interrupt both when Zero Motion is first detected and when Zero Motion is no longer detected.
+
+When a zero motion event is detected, a Zero Motion Status will be indicated in the MOT_DETECT_STATUS register (Register 97). When a motion-to-zero-motion condition is detected, the status bit is set to 1. When a zero-motion-to- motion condition is detected, the status bit is set to 0.
+
+For more details on the Zero Motion detection interrupt, see Section 8.4 of the MPU-6000/MPU-6050 Product Specification document as well as Registers 56 and 58 of this document.
+Returns:Current zero motion detection acceleration threshold value (LSB = 2mg) See also:MPU6050_RA_ZRMOT_THR 
