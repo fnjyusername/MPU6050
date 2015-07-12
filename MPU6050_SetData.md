@@ -743,8 +743,8 @@ Switch from I2C to SPI mode (MPU-6000 only) If this is set, the primary SPI inte
 ##### bool MPU6050::testConnection  (  )  
 `
 Verify the I2C connection. Make sure the device is connected and responds as expected. 
-Returns: "
-True" if connection is valid, false otherwise 
+Returns: 
+"True" if connection is valid, false otherwise 
 `
 
 The documentation for this class was generated from the following files:•MPU6050/MPU6050.h
