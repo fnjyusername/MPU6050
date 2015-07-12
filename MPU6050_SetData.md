@@ -8,7 +8,6 @@ This will activate the device and take it out of sleep mode (which must be done 
 This function also sets both the accelerometer and the gyroscope to their most sensitive settings, namely +/- 2g and +/- 250 degrees/sec, and sets the clock source to use the X Gyro for reference, which is slightly better than the default internal clock source. 
 ` 
 
-
 #####  void MPU6050::reset  (  )  
 `
 Trigger a full device reset. A small delay of ~50ms may be desirable after triggering a reset. 
@@ -16,7 +15,6 @@ See also:MPU6050_RA_PWR_MGMT_1 MPU6050_PWR1_DEVICE_RESET_BIT
 `
 
 #####  void MPU6050::resetAccelerometerPath  (  )  
-
 `
 Reset accelerometer signal path. The reset will revert the signal path analog to digital converters and filters to their power up configurations. 
 See also:MPU6050_RA_SIGNAL_PATH_RESET MPU6050_PATHRESET_ACCEL_RESET_BIT  
@@ -67,12 +65,12 @@ See also:getAccelerometerPowerOnDelay() MPU6050_RA_MOT_DETECT_CTRL MPU6050_DETEC
 `
 
 #####  void MPU6050::setAccelFIFOEnabled  ( bool  enabled )  
-
 `
 Set accelerometer FIFO enabled value. 
 Parameters:
 enabled New accelerometer FIFO enabled value  
-See also:getAccelFIFOEnabled() MPU6050_RA_FIFO_EN  
+See also:
+getAccelFIFOEnabled() MPU6050_RA_FIFO_EN  
 `
 
 #####  void MPU6050::setAccelXSelfTest  ( bool  enabled )  
@@ -121,10 +119,8 @@ See also:MPU6050_RA_INT_PIN_CFG MPU6050_INTCFG_CLKOUT_EN_BIT
 `
 
 #####  void MPU6050::setClockSource  ( uint8_t  source )  
-
 `
 Set clock source setting. An internal 8MHz oscillator, gyroscope based clock, or external sources can be selected as the MPU-60X0 clock source. When the internal 8 MHz oscillator or an external source is chosen as the clock source, the MPU-60X0 can operate in low power modes with the gyroscopes disabled.
-
 Upon power up, the MPU-60X0 clock source defaults to the internal oscillator. However, it is highly recommended that the device be configured to use one of the gyroscopes (or an external clock source) as the clock reference for improved stability. The clock source can be selected according to the following table:
 `
 
