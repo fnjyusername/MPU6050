@@ -157,7 +157,6 @@ See also:getDeviceID() MPU6050_RA_WHO_AM_I MPU6050_WHO_AM_I_BIT MPU6050_WHO_AM_I
 `
 Set the high-pass filter configuration. 
 Parameters:
-
 bandwidth New high-pass filter configuration  
 See also:setDHPFMode() MPU6050_DHPF_RESET MPU6050_RA_ACCEL_CONFIG  
 `
@@ -167,7 +166,6 @@ See also:setDHPFMode() MPU6050_DHPF_RESET MPU6050_RA_ACCEL_CONFIG
 `
 Set digital low-pass filter configuration. 
 Parameters:
-
 mode New DLFP configuration setting  
 See also:getDLPFBandwidth() MPU6050_DLPF_BW_256 MPU6050_RA_CONFIG MPU6050_CFG_DLPF_CFG_BIT MPU6050_CFG_DLPF_CFG_LENGTH 
 `
