@@ -3,7 +3,9 @@
 
 #####  void MPU6050::initialize  (  )  
 `
-Power on and prepare for general usage. This will activate the device and take it out of sleep mode (which must be done after start-up). This function also sets both the accelerometer and the gyroscope to their most sensitive settings, namely +/- 2g and +/- 250 degrees/sec, and sets the clock source to use the X Gyro for reference, which is slightly better than the default internal clock source. 
+Power on and prepare for general usage. 
+This will activate the device and take it out of sleep mode (which must be done after start-up). 
+This function also sets both the accelerometer and the gyroscope to their most sensitive settings, namely +/- 2g and +/- 250 degrees/sec, and sets the clock source to use the X Gyro for reference, which is slightly better than the default internal clock source. 
 ` 
 
 
