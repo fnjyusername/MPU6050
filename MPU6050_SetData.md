@@ -65,6 +65,7 @@ See also:getAccelerometerPowerOnDelay() MPU6050_RA_MOT_DETECT_CTRL MPU6050_DETEC
 `
 
 #####  void MPU6050::setAccelFIFOEnabled  ( bool  enabled )  
+
 `
 Set accelerometer FIFO enabled value. 
 Parameters:
@@ -73,6 +74,7 @@ See also:getAccelFIFOEnabled() MPU6050_RA_FIFO_EN
 `
 
 #####  void MPU6050::setAccelXSelfTest  ( bool  enabled )  
+
 `
 Get self-test enabled setting for accelerometer X axis. 
 Parameters:
@@ -81,6 +83,7 @@ See also:MPU6050_RA_ACCEL_CONFIG
 `
 
 #####  void MPU6050::setAccelYSelfTest  ( bool  enabled )  
+
 `
 Get self-test enabled value for accelerometer Y axis. 
 Parameters:
@@ -89,6 +92,7 @@ See also:MPU6050_RA_ACCEL_CONFIG
 `
 
 #####  void MPU6050::setAccelZSelfTest  ( bool  enabled )  
+
 `
 Set self-test enabled value for accelerometer Z axis. 
 Parameters:
@@ -97,6 +101,7 @@ See also:MPU6050_RA_ACCEL_CONFIG
 `
 
 #####  void MPU6050::setAuxVDDIOLevel  ( uint8_t  level )  
+
 `
 Set the auxiliary I2C supply voltage level. When set to 1, the auxiliary I2C bus high logic level is VDD. When cleared to 0, the auxiliary I2C bus high logic level is VLOGIC. This does not apply to the MPU-6000, which does not have a VLOGIC pin. 
 Parameters:
@@ -105,6 +110,7 @@ level I2C supply voltage level (0=VLOGIC, 1=VDD)
 
 
 #####  void MPU6050::setClockOutputEnabled  ( bool  enabled )  
+
 `
 Set reference clock output enabled status. When this bit is equal to 1, a reference clock output is provided at the CLKOUT pin. When this bit is equal to 0, the clock output is disabled. For further information regarding CLKOUT, please refer to the MPU-60X0 Product Specification document. 
 Parameters:
@@ -113,6 +119,7 @@ See also:MPU6050_RA_INT_PIN_CFG MPU6050_INTCFG_CLKOUT_EN_BIT
 `
 
 #####  void MPU6050::setClockSource  ( uint8_t  source )  
+
 `
 Set clock source setting. An internal 8MHz oscillator, gyroscope based clock, or external sources can be selected as the MPU-60X0 clock source. When the internal 8 MHz oscillator or an external source is chosen as the clock source, the MPU-60X0 can operate in low power modes with the gyroscopes disabled.
 
@@ -129,13 +136,15 @@ Upon power up, the MPU-60X0 clock source defaults to the internal oscillator. Ho
  5       | PLL with external 19.2MHz reference
  6       | Reserved
  7       | Stops the clock and keeps the timing generator in reset
- 
+
+` 
 Parameters:
 source New clock source setting  
 See also:getClockSource() MPU6050_RA_PWR_MGMT_1 MPU6050_PWR1_CLKSEL_BIT MPU6050_PWR1_CLKSEL_LENGTH  
-
+`
 
 #####  void MPU6050::setDeviceID  ( uint8_t  id )  
+
 `
 Set Device ID. Write a new ID into the WHO_AM_I register (no idea why this should ever be necessary though). 
 Parameters:
@@ -144,6 +153,7 @@ See also:getDeviceID() MPU6050_RA_WHO_AM_I MPU6050_WHO_AM_I_BIT MPU6050_WHO_AM_I
 `
 
 #####  void MPU6050::setDHPFMode  ( uint8_t  bandwidth )  
+
 `
 Set the high-pass filter configuration. 
 Parameters:
@@ -153,6 +163,7 @@ See also:setDHPFMode() MPU6050_DHPF_RESET MPU6050_RA_ACCEL_CONFIG
 `
 
 #####  void MPU6050::setDLPFMode  ( uint8_t  mode )  
+
 `
 Set digital low-pass filter configuration. 
 Parameters:
