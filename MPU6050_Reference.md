@@ -191,3 +191,260 @@ Parameters:
 position Starting position (0-23)  
 Returns:Byte read from register 
 
+```
+uint8_t MPU6050::getFullScaleAccelRange  (  )  
+```
+
+Get full-scale accelerometer range. The FS_SEL parameter allows setting the full-scale range of the accelerometer sensors, as described in the table below.
+ 0 = +/- 2g
+ 1 = +/- 4g
+ 2 = +/- 8g
+ 3 = +/- 16g
+ 
+Returns:Current full-scale accelerometer range setting See also:MPU6050_ACCEL_FS_2 MPU6050_RA_ACCEL_CONFIG MPU6050_ACONFIG_AFS_SEL_BIT MPU6050_ACONFIG_AFS_SEL_LENGTH  
+
+```
+uint8_t MPU6050::getFullScaleGyroRange  (  )  
+```
+
+Get full-scale gyroscope range. The FS_SEL parameter allows setting the full-scale range of the gyro sensors, as described in the table below.
+ 0 = +/- 250 degrees/sec
+ 1 = +/- 500 degrees/sec
+ 2 = +/- 1000 degrees/sec
+ 3 = +/- 2000 degrees/sec
+ 
+Returns:Current full-scale gyroscope range setting See also:MPU6050_GYRO_FS_250 MPU6050_RA_GYRO_CONFIG MPU6050_GCONFIG_FS_SEL_BIT MPU6050_GCONFIG_FS_SEL_LENGTH 
+
+
+```
+uint8_t MPU6050::getFreefallDetectionCounterDecrement  (  )  
+```
+
+Get Free Fall detection counter decrement configuration. Detection is registered by the Free Fall detection module after accelerometer measurements meet their respective threshold conditions over a specified number of samples. When the threshold conditions are met, the corresponding detection counter increments by 1. The user may control the rate at which the detection counter decrements when the threshold condition is not met by configuring FF_COUNT. The decrement rate can be set according to the following table:
+
+ FF_COUNT | Counter Decrement
+----------|------------------
+ 0        | Reset
+ 1        | 1
+ 2        | 2
+ 3        | 4
+ 
+
+When FF_COUNT is configured to 0 (reset), any non-qualifying sample will reset the counter to 0. For further information on Free Fall detection, please refer to Registers 29 to 32.
+Returns:Current decrement configuration See also:MPU6050_RA_MOT_DETECT_CTRL MPU6050_DETECT_FF_COUNT_BIT  
+
+```
+uint8_t MPU6050::getFreefallDetectionDuration  (  )  
+```
+
+Get free-fall event duration threshold. This register configures the duration counter threshold for Free Fall event detection. The duration counter ticks at 1kHz, therefore FF_DUR has a unit of 1 LSB = 1 ms.
+
+The Free Fall duration counter increments while the absolute value of the accelerometer measurements are each less than the detection threshold (Register 29). The Free Fall interrupt is triggered when the Free Fall duration counter reaches the time specified in this register.
+
+For more details on the Free Fall detection interrupt, see Section 8.2 of the MPU-6000/MPU-6050 Product Specification document as well as Registers 56 and 58 of this document.
+Returns:Current free-fall duration threshold value (LSB = 1ms) See also:MPU6050_RA_FF_DUR  
+
+```
+uint8_t MPU6050::getFreefallDetectionThreshold  (  )  
+```
+
+Get free-fall event acceleration threshold. This register configures the detection threshold for Free Fall event detection. The unit of FF_THR is 1LSB = 2mg. Free Fall is detected when the absolute value of the accelerometer measurements for the three axes are each less than the detection threshold. This condition increments the Free Fall duration counter (Register 30). The Free Fall interrupt is triggered when the Free Fall duration counter reaches the time specified in FF_DUR.
+
+For more details on the Free Fall detection interrupt, see Section 8.2 of the MPU-6000/MPU-6050 Product Specification document as well as Registers 56 and 58 of this document.
+Returns:Current free-fall acceleration threshold value (LSB = 2mg) See also:MPU6050_RA_FF_THR 
+
+
+```
+bool MPU6050::getI2CBypassEnabled  (  )  
+```
+Get I2C bypass enabled status. When this bit is equal to 1 and I2C_MST_EN (Register 106 bit[5]) is equal to 0, the host application processor will be able to directly access the auxiliary I2C bus of the MPU-60X0. When this bit is equal to 0, the host application processor will not be able to directly access the auxiliary I2C bus of the MPU-60X0 regardless of the state of I2C_MST_EN (Register 106 bit[5]). 
+Returns:Current I2C bypass enabled status See also:MPU6050_RA_INT_PIN_CFG MPU6050_INTCFG_I2C_BYPASS_EN_BIT 
+
+```
+bool MPU6050::getI2CMasterModeEnabled  (  )  
+```
+Get I2C Master Mode enabled status. When this mode is enabled, the MPU-60X0 acts as the I2C Master to the external sensor slave devices on the auxiliary I2C bus. When this bit is cleared to 0, the auxiliary I2C bus lines (AUX_DA and AUX_CL) are logically driven by the primary I2C bus (SDA and SCL). This is a precondition to enabling Bypass Mode. For further information regarding Bypass Mode, please refer to Register 55. 
+Returns:Current I2C Master Mode enabled status See also:MPU6050_RA_USER_CTRL MPU6050_USERCTRL_I2C_MST_EN_BIT 
+
+ 
+
+```
+bool MPU6050::getIntFreefallEnabled  (  )  
+```
+Get Free Fall interrupt enabled status. Will be set 0 for disabled, 1 for enabled. 
+Returns:Current interrupt enabled status See also:MPU6050_RA_INT_ENABLE MPU6050_INTERRUPT_FF_BIT  
+
+```
+bool MPU6050::getIntFreefallStatus  (  )  
+```
+Get Free Fall interrupt status. This bit automatically sets to 1 when a Free Fall interrupt has been generated. The bit clears to 0 after the register has been read. 
+Returns:Current interrupt status See also:MPU6050_RA_INT_STATUS MPU6050_INTERRUPT_FF_BIT
+
+```
+uint8_t MPU6050::getMasterClockSpeed  (  )  
+```
+Get I2C master clock speed. I2C_MST_CLK is a 4 bit unsigned value which configures a divider on the MPU-60X0 internal 8MHz clock. It sets the I2C master clock speed according to the following table:
+ I2C_MST_CLK | I2C Master Clock Speed | 8MHz Clock Divider
+ ------------+------------------------+-------------------
+ 0           | 348kHz                 | 23
+ 1           | 333kHz                 | 24
+ 2           | 320kHz                 | 25
+ 3           | 308kHz                 | 26
+ 4           | 296kHz                 | 27
+ 5           | 286kHz                 | 28
+ 6           | 276kHz                 | 29
+ 7           | 267kHz                 | 30
+ 8           | 258kHz                 | 31
+ 9           | 500kHz                 | 16
+ 10          | 471kHz                 | 17
+ 11          | 444kHz                 | 18
+ 12          | 421kHz                 | 19
+ 13          | 400kHz                 | 20
+ 14          | 381kHz                 | 21
+ 15          | 364kHz                 | 22
+ 
+Returns:Current I2C master clock speed See also:MPU6050_RA_I2C_MST_CTRL  
+
+
+
+```
+void MPU6050::getMotion6  ( int16_t *  ax,  
+  int16_t *  ay,  
+  int16_t *  az,  
+  int16_t *  gx,  
+  int16_t *  gy,  
+  int16_t *  gz  
+ )   
+```
+Get raw 6-axis motion sensor readings (accel/gyro). Retrieves all currently available motion sensor values. 
+Parameters:
+ax 16-bit signed integer container for accelerometer X-axis value  
+ay 16-bit signed integer container for accelerometer Y-axis value  
+az 16-bit signed integer container for accelerometer Z-axis value  
+gx 16-bit signed integer container for gyroscope X-axis value  
+gy 16-bit signed integer container for gyroscope Y-axis value  
+gz 16-bit signed integer container for gyroscope Z-axis value  
+See also:getAcceleration() getRotation() MPU6050_RA_ACCEL_XOUT_H  
+
+
+
+```
+void MPU6050::getMotion9  ( int16_t *  ax,  
+  int16_t *  ay,  
+  int16_t *  az,  
+  int16_t *  gx,  
+  int16_t *  gy,  
+  int16_t *  gz,  
+  int16_t *  mx,  
+  int16_t *  my,  
+  int16_t *  mz  
+ )   
+```
+Get raw 9-axis motion sensor readings (accel/gyro/compass). FUNCTION NOT FULLY IMPLEMENTED YET. 
+Parameters:
+ax 16-bit signed integer container for accelerometer X-axis value  
+ay 16-bit signed integer container for accelerometer Y-axis value  
+az 16-bit signed integer container for accelerometer Z-axis value  
+gx 16-bit signed integer container for gyroscope X-axis value  
+gy 16-bit signed integer container for gyroscope Y-axis value  
+gz 16-bit signed integer container for gyroscope Z-axis value  
+mx 16-bit signed integer container for magnetometer X-axis value  
+my 16-bit signed integer container for magnetometer Y-axis value  
+mz 16-bit signed integer container for magnetometer Z-axis value  
+See also:getMotion6() getAcceleration() getRotation() MPU6050_RA_ACCEL_XOUT_H  
+
+```
+uint8_t MPU6050::getMotionDetectionCounterDecrement  (  )  
+```
+Get Motion detection counter decrement configuration. Detection is registered by the Motion detection module after accelerometer measurements meet their respective threshold conditions over a specified number of samples. When the threshold conditions are met, the corresponding detection counter increments by 1. The user may control the rate at which the detection counter decrements when the threshold condition is not met by configuring MOT_COUNT. The decrement rate can be set according to the following table:
+
+ MOT_COUNT | Counter Decrement
+ ----------+------------------
+ 0         | Reset
+ 1         | 1
+ 2         | 2
+ 3         | 4
+ 
+
+When MOT_COUNT is configured to 0 (reset), any non-qualifying sample will reset the counter to 0. For further information on Motion detection, please refer to Registers 29 to 32. 
+ 
+
+```
+uint8_t MPU6050::getMotionDetectionDuration  (  )  
+```
+Get motion detection event duration threshold. This register configures the duration counter threshold for Motion interrupt generation. The duration counter ticks at 1 kHz, therefore MOT_DUR has a unit of 1LSB = 1ms. The Motion detection duration counter increments when the absolute value of any of the accelerometer measurements exceeds the Motion detection threshold (Register 31). The Motion detection interrupt is triggered when the Motion detection counter reaches the time count specified in this register.
+
+For more details on the Motion detection interrupt, see Section 8.3 of the MPU-6000/MPU-6050 Product Specification document.
+Returns:Current motion detection duration threshold value (LSB = 1ms) See also:MPU6050_RA_MOT_DUR  
+
+```
+uint8_t MPU6050::getMotionDetectionThreshold  (  )  
+```
+Get motion detection event acceleration threshold. This register configures the detection threshold for Motion interrupt generation. The unit of MOT_THR is 1LSB = 2mg. Motion is detected when the absolute value of any of the accelerometer measurements exceeds this Motion detection threshold. This condition increments the Motion detection duration counter (Register 32). The Motion detection interrupt is triggered when the Motion Detection counter reaches the time count specified in MOT_DUR (Register 32).
+
+The Motion interrupt will indicate the axis and polarity of detected motion in MOT_DETECT_STATUS (Register 97).
+
+For more details on the Motion detection interrupt, see Section 8.3 of the MPU-6000/MPU-6050 Product Specification document as well as Registers 56 and 58 of this document.
+Returns:Current motion detection acceleration threshold value (LSB = 2mg) See also:MPU6050_RA_MOT_THR 
+
+
+```
+uint8_t MPU6050::getRate  (  )  
+```
+
+Get gyroscope output rate divider. The sensor register output, FIFO output, DMP sampling, Motion detection, Zero Motion detection, and Free Fall detection are all based on the Sample Rate. The Sample Rate is generated by dividing the gyroscope output rate by SMPLRT_DIV:
+
+Sample Rate = Gyroscope Output Rate / (1 + SMPLRT_DIV)
+
+where Gyroscope Output Rate = 8kHz when the DLPF is disabled (DLPF_CFG = 0 or 7), and 1kHz when the DLPF is enabled (see Register 26).
+
+Note: The accelerometer output rate is 1kHz. This means that for a Sample Rate greater than 1kHz, the same accelerometer sample may be output to the FIFO, DMP, and sensor registers more than once.
+
+For a diagram of the gyroscope and accelerometer signal paths, see Section 8 of the MPU-6000/MPU-6050 Product Specification document.
+Returns:Current sample rate See also:MPU6050_RA_SMPLRT_DIV  
+
+```
+void MPU6050::getRotation  ( int16_t *  x,   int16_t *  y,    int16_t *  z  )   
+```
+
+Get 3-axis gyroscope readings. These gyroscope measurement registers, along with the accelerometer measurement registers, temperature measurement registers, and external sensor data registers, are composed of two sets of registers: an internal register set and a user-facing read register set. The data within the gyroscope sensors' internal register set is always updated at the Sample Rate. Meanwhile, the user-facing read register set duplicates the internal register set's data values whenever the serial interface is idle. This guarantees that a burst read of sensor registers will read measurements from the same sampling instant. Note that if burst reads are not used, the user is responsible for ensuring a set of single byte reads correspond to a single sampling instant by checking the Data Ready interrupt.
+
+Each 16-bit gyroscope measurement has a full scale defined in FS_SEL (Register 27). For each full scale setting, the gyroscopes' sensitivity per LSB in GYRO_xOUT is shown in the table below:
+ 
+ FS_SEL | Full Scale Range   | LSB Sensitivity
+--------|--------------------|------------------
+ 0      | +/- 250 degrees/s  | 131 LSB/deg/s
+ 1      | +/- 500 degrees/s  | 65.5 LSB/deg/s
+ 2      | +/- 1000 degrees/s | 32.8 LSB/deg/s
+ 3      | +/- 2000 degrees/s | 16.4 LSB/deg/s
+ 
+Parameters:
+
+x 16-bit signed integer container for X-axis rotation  
+y 16-bit signed integer container for Y-axis rotation  
+z 16-bit signed integer container for Z-axis rotation  
+See also:getMotion6() MPU6050_RA_GYRO_XOUT_H  
+
+```
+int16_t MPU6050::getRotationX  (  )  
+```
+Get X-axis gyroscope reading. 
+Returns:X-axis rotation measurement in 16-bit 2's complement format See also:getMotion6() MPU6050_RA_GYRO_XOUT_H  
+
+```
+int16_t MPU6050::getRotationY  (  )  
+```
+Get Y-axis gyroscope reading. 
+Returns:Y-axis rotation measurement in 16-bit 2's complement format See also:getMotion6() MPU6050_RA_GYRO_YOUT_H  
+
+```
+int16_t MPU6050::getRotationZ  (  )  
+```
+Get Z-axis gyroscope reading. 
+Returns:Z-axis rotation measurement in 16-bit 2's complement format See also:getMotion6() MPU6050_RA_GYRO_ZOUT_H  
+
+```
+uint8_t MPU6050::getSlate4InputByte  (  )  
+```
+Get last available byte read from Slave 4. This register stores the data read from Slave 4. This field is populated after a read transaction. 
+Returns:Last available byte read from to Slave 4 See also:MPU6050_RA_I2C_SLV4_DI 
