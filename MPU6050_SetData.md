@@ -734,17 +734,18 @@ enabled New gyroscope Z-axis FIFO enabled value
 See also:getZGyroFIFOEnabled() MPU6050_RA_FIFO_EN  
 
 
-void MPU6050::switchSPIEnabled  ( bool  enabled )  
-
-
+##### void MPU6050::switchSPIEnabled  ( bool  enabled )  
+`
 Switch from I2C to SPI mode (MPU-6000 only) If this is set, the primary SPI interface will be enabled in place of the disabled primary I2C interface. 
- 
+` 
 
 
-bool MPU6050::testConnection  (  )  
-
-
+##### bool MPU6050::testConnection  (  )  
+`
 Verify the I2C connection. Make sure the device is connected and responds as expected. 
-Returns:True if connection is valid, false otherwise 
+Returns: "
+True" if connection is valid, false otherwise 
+`
+
 The documentation for this class was generated from the following files:•MPU6050/MPU6050.h
 •MPU6050/MPU6050.cpp
