@@ -14,6 +14,7 @@ See also:MPU6050_RA_PWR_MGMT_1 MPU6050_PWR1_DEVICE_RESET_BIT
 `
 
 #####  void MPU6050::resetAccelerometerPath  (  )  
+
 `
 Reset accelerometer signal path. The reset will revert the signal path analog to digital converters and filters to their power up configurations. 
 See also:MPU6050_RA_SIGNAL_PATH_RESET MPU6050_PATHRESET_ACCEL_RESET_BIT  
@@ -26,12 +27,14 @@ See also:MPU6050_RA_USER_CTRL MPU6050_USERCTRL_FIFO_RESET_BIT
 `
 
 #####  void MPU6050::resetGyroscopePath  (  )  
+
 `
 Reset gyroscope signal path. The reset will revert the signal path analog to digital converters and filters to their power up configurations. 
 See also:MPU6050_RA_SIGNAL_PATH_RESET MPU6050_PATHRESET_GYRO_RESET_BIT  
 `
 
 #####  void MPU6050::resetI2CMaster  (  )  
+
 `
 Reset the I2C Master. This bit resets the I2C Master when set to 1 while I2C_MST_EN equals 0. This bit automatically clears to 0 after the reset has been triggered. 
 See also:MPU6050_RA_USER_CTRL MPU6050_USERCTRL_I2C_MST_RESET_BIT  
@@ -46,12 +49,14 @@ See also:MPU6050_RA_USER_CTRL MPU6050_USERCTRL_SIG_COND_RESET_BIT
 `
 
 #####  void MPU6050::resetTemperaturePath  (  )  
+
 `
 Reset temperature sensor signal path. The reset will revert the signal path analog to digital converters and filters to their power up configurations. 
 See also:MPU6050_RA_SIGNAL_PATH_RESET MPU6050_PATHRESET_TEMP_RESET_BIT  
 `
 
 #####  void MPU6050::setAccelerometerPowerOnDelay  ( uint8_t  delay )  
+
 `
 Set accelerometer power-on delay. 
 Parameters:
