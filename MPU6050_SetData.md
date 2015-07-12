@@ -59,8 +59,7 @@ See also:MPU6050_RA_SIGNAL_PATH_RESET MPU6050_PATHRESET_TEMP_RESET_BIT
 
 `
 Set accelerometer power-on delay. 
-Parameters:
-delay New accelerometer power-on delay (0-3)  
+Parameters: "delay" New accelerometer power-on delay (0-3)  
 See also:getAccelerometerPowerOnDelay() MPU6050_RA_MOT_DETECT_CTRL MPU6050_DETECT_ACCEL_ON_DELAY_BIT  
 `
 
