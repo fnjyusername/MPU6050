@@ -59,24 +59,22 @@ See also:MPU6050_RA_SIGNAL_PATH_RESET MPU6050_PATHRESET_TEMP_RESET_BIT
 #####  void MPU6050::setAccelerometerPowerOnDelay  ( uint8_t  delay )  
 `
 Set accelerometer power-on delay. 
-Parameters: "delay" New accelerometer power-on delay (0-3)  
+Parameters: "delay", New accelerometer power-on delay (0-3)  
 See also:getAccelerometerPowerOnDelay() MPU6050_RA_MOT_DETECT_CTRL MPU6050_DETECT_ACCEL_ON_DELAY_BIT  
 `
 
 #####  void MPU6050::setAccelFIFOEnabled  ( bool  enabled )  
 `
 Set accelerometer FIFO enabled value. 
-Parameters: "enabled" New accelerometer FIFO enabled value  
+Parameters: "enabled", New accelerometer FIFO enabled value  
 See also:
 getAccelFIFOEnabled() MPU6050_RA_FIFO_EN  
 `
 
 #####  void MPU6050::setAccelXSelfTest  ( bool  enabled )  
-
 `
 Get self-test enabled setting for accelerometer X axis. 
-Parameters:
-enabled Self-test enabled value  
+Parameters: "enabled",  Self-test enabled value  
 See also:MPU6050_RA_ACCEL_CONFIG  
 `
 
@@ -84,35 +82,28 @@ See also:MPU6050_RA_ACCEL_CONFIG
 
 `
 Get self-test enabled value for accelerometer Y axis. 
-Parameters:
-enabled Self-test enabled value  
+Parameters: "enabled", Self-test enabled value  
 See also:MPU6050_RA_ACCEL_CONFIG  
 `
 
 #####  void MPU6050::setAccelZSelfTest  ( bool  enabled )  
-
 `
 Set self-test enabled value for accelerometer Z axis. 
-Parameters:
-enabled Self-test enabled value  
+Parameters: "enabled", Self-test enabled value  
 See also:MPU6050_RA_ACCEL_CONFIG  
 `
 
 #####  void MPU6050::setAuxVDDIOLevel  ( uint8_t  level )  
-
 `
 Set the auxiliary I2C supply voltage level. When set to 1, the auxiliary I2C bus high logic level is VDD. When cleared to 0, the auxiliary I2C bus high logic level is VLOGIC. This does not apply to the MPU-6000, which does not have a VLOGIC pin. 
-Parameters:
-level I2C supply voltage level (0=VLOGIC, 1=VDD)  
+Parameters: "level",  I2C supply voltage level (0=VLOGIC, 1=VDD)  
 `
 
 
 #####  void MPU6050::setClockOutputEnabled  ( bool  enabled )  
-
 `
 Set reference clock output enabled status. When this bit is equal to 1, a reference clock output is provided at the CLKOUT pin. When this bit is equal to 0, the clock output is disabled. For further information regarding CLKOUT, please refer to the MPU-60X0 Product Specification document. 
-Parameters:
-enabled New reference clock output enabled status  
+Parameters: "enabled",  New reference clock output enabled status  
 See also:MPU6050_RA_INT_PIN_CFG MPU6050_INTCFG_CLKOUT_EN_BIT  
 `
 
