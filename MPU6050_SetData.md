@@ -46,20 +46,17 @@ Reset all sensor registers and signal paths.
 When set to 1, this bit resets the signal paths for all sensors (gyroscopes, accelerometers, and temperature sensor). 
 This operation will also clear the sensor registers. 
 This bit automatically clears to 0 after the reset has been triggered.
-
 When resetting only the signal path (and not the sensor registers), please use Register 104, SIGNAL_PATH_RESET.
 See also:MPU6050_RA_USER_CTRL MPU6050_USERCTRL_SIG_COND_RESET_BIT  
 `
 
 #####  void MPU6050::resetTemperaturePath  (  )  
-
 `
 Reset temperature sensor signal path. The reset will revert the signal path analog to digital converters and filters to their power up configurations. 
 See also:MPU6050_RA_SIGNAL_PATH_RESET MPU6050_PATHRESET_TEMP_RESET_BIT  
 `
 
 #####  void MPU6050::setAccelerometerPowerOnDelay  ( uint8_t  delay )  
-
 `
 Set accelerometer power-on delay. 
 Parameters: "delay" New accelerometer power-on delay (0-3)  
@@ -69,8 +66,7 @@ See also:getAccelerometerPowerOnDelay() MPU6050_RA_MOT_DETECT_CTRL MPU6050_DETEC
 #####  void MPU6050::setAccelFIFOEnabled  ( bool  enabled )  
 `
 Set accelerometer FIFO enabled value. 
-Parameters:
-enabled New accelerometer FIFO enabled value  
+Parameters: "enabled" New accelerometer FIFO enabled value  
 See also:
 getAccelFIFOEnabled() MPU6050_RA_FIFO_EN  
 `
