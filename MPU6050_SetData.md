@@ -139,15 +139,13 @@ See also:getDeviceID() MPU6050_RA_WHO_AM_I MPU6050_WHO_AM_I_BIT MPU6050_WHO_AM_I
 `
 
 #####  void MPU6050::setDHPFMode  ( uint8_t  bandwidth )  
-
 `
 Set the high-pass filter configuration. 
-Parameters: bandwidth New high-pass filter configuration  
+Parameters: "bandwidth",  New high-pass filter configuration  
 See also:setDHPFMode() MPU6050_DHPF_RESET MPU6050_RA_ACCEL_CONFIG  
 `
 
 #####  void MPU6050::setDLPFMode  ( uint8_t  mode )  
-
 `
 Set digital low-pass filter configuration. 
 Parameters:
@@ -157,26 +155,21 @@ See also:getDLPFBandwidth() MPU6050_DLPF_BW_256 MPU6050_RA_CONFIG MPU6050_CFG_DL
 
 
 ##### void MPU6050::setFreefallDetectionCounterDecrement  ( uint8_t  decrement )  
-
 `
 Set Free Fall detection counter decrement configuration. 
 Parameters:
-decrement New decrement configuration value  
+"decrement" New decrement configuration value  
 See also:getFreefallDetectionCounterDecrement() MPU6050_RA_MOT_DETECT_CTRL MPU6050_DETECT_FF_COUNT_BIT  
 `
 
 ##### void MPU6050::setFreefallDetectionDuration  ( uint8_t  duration )  
-
 `
 Get free-fall event duration threshold. 
-
-Parameters:
-duration New free-fall duration threshold value (LSB = 1ms)  
+Parameters: "duration",  New free-fall duration threshold value (LSB = 1ms)  
 See also:getFreefallDetectionDuration() MPU6050_RA_FF_DUR  
 `
 
 ##### void MPU6050::setFreefallDetectionThreshold  ( uint8_t  threshold )  
-
 `
 Get free-fall event acceleration threshold. 
 
