@@ -113,8 +113,9 @@ Set clock source setting. An internal 8MHz oscillator, gyroscope based clock, or
 
 Upon power up, the MPU-60X0 clock source defaults to the internal oscillator. However, it is highly recommended that the device be configured to use one of the gyroscopes (or an external clock source) as the clock reference for improved stability. The clock source can be selected according to the following table:
 `
+
  CLK_SEL | Clock Source
----------|----------------------------------------------------------
+---------|-----------------------
  0       | Internal oscillator
  1       | PLL with X Gyro reference
  2       | PLL with Y Gyro reference
